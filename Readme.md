@@ -1,6 +1,6 @@
 To run api for McLaren-Marsaglia and Bays-Durham algorithms
 1. navigate to working directory 'MM-BD-API'
-2. run 'docker build -t algorithms-mm-bd-api'
+2. run 'docker build -t algorithms-mm-bd-api .'
 3. run 'docker run -p 5000:5000 algorithms-mm-bd-api'
 
 
