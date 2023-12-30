@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import subprocess
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/', methods=['POST'])
 def CALL_WELL():
