@@ -1,0 +1,8 @@
+output{
+    display: block;
+    border: solid 1px var(--cBrightGray);
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--cDarkGray);
+    min-height: 26px;
+}
