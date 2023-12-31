@@ -52,7 +52,7 @@ class Tester:
             return pval, True
         
 
-    def frequencyTestWithinBlock(self, M):
+    def frequencyTestWithinBlock(self, M = 128):
         """
         This test is documented in section 2.2 of the NIST documentation.
         n should be at least 100.
@@ -588,7 +588,7 @@ class Tester:
         
         pval = 1 - t0 + t1
 
-        return pval, pval<=0.01
+        return pval, pval>=0.01
 
     def cumulativeSumsBackwardTest(self):
         n = len(self.input)
@@ -618,7 +618,7 @@ class Tester:
         
         pval = 1 - t0 + t1
 
-        return pval, pval<=0.01
+        return pval, pval>=0.01
  
     def randomExcursionsTest(self):
         n = len(self.input)
