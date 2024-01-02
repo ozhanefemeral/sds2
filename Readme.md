@@ -50,6 +50,6 @@ Returns:
     - The "result" field for each test is a string of the form "x/y", where x is the number of tests passed and y is the total number of tests.
     - The "pval" field for each test except randomExcursionsTest and randomExcursionsVariantTest is a float representing the p-value of the test.
     - The "pval" field for randomExcursionsTest and randomExcursionsVariantTest is a dictionary mapping each state to its p-value.
-    - There are some shenanigans with randomExcursionsVariantTest either because of implementation or becouse of the test itself so you may ignore the p-values at states -9 and 9 thus result 16/18 should be considered that input sequence is random.
+    - There are some shenanigans with randomExcursionsVariantTest either because of implementation or because of the test itself so you may ignore the p-values at states -9 and 9 thus result 16/18 should be considered that input sequence is random.
     - "pval" == -1 (same for "result" == "-1/y") means that the test was not executed because of too small input sequence.
       
