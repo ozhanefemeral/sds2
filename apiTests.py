@@ -1,5 +1,4 @@
 import requests
-import numpy as np
 import unittest
 global pi_list
 global response
@@ -67,7 +66,7 @@ if __name__ == "__main__":
     pi_list = [int(i) for i in pi_str]
     pi_list = pi_list[:1000000]
     response = requests.post(
-    "http://localhost:5000/testRandomnessWithNISTPakcage",
+    "http://127.0.0.1:5001/testRandomnessWithNISTPakcage",
     json={
         "sequence": pi_list
     })

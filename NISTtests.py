@@ -5,7 +5,6 @@
 
 import copy
 import math
-from typing import Any
 import numpy as np
 from scipy.special import gammaincc
 import scipy.fftpack as sff

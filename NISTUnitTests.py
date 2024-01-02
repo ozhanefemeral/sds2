@@ -1,8 +1,5 @@
-import random
 import unittest
-import mpmath
 
-import numpy
 from NISTtests import Tester
 
 global pi_list
