@@ -1,21 +1,25 @@
 import subprocess
 import os
 
-def build_and_run_api(api_folder, port):
-    # Change directory to the API folder
-    os.chdir(api_folder)
+def get_image_id(image_name):
+    image_id = subprocess.run(['docker', 'images', image_name, '-q'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
 
-    # Build Docker image
+    return image_id
+
+def build_and_run_api(api_folder, port):
+    os.chdir(api_folder)
+    
+
     subprocess.run(['docker', 'build', '-t', f'{api_folder.lower()}-api', '.'])
 
-    # Run Docker container
-    subprocess.run(['docker', 'run', '-d', '-p', f'{port}:{port}', f'{api_folder.lower()}-api'])
+    subprocess.run(['docker', 'stop', f'{api_folder.lower()}-container'])
+    subprocess.run(['docker', 'rm', f'{api_folder.lower()}-container'])
+    subprocess.run(['docker', 'run', '-d', '-p', f'{port}:{port}', '--name', f'{api_folder.lower()}-container', f'{api_folder.lower()}-api'])
+        
 
-    # Change back to the original directory
     os.chdir('..')
 
 if __name__ == "__main__":
-    # List of API folders
     api_folders = [('MM-BD-API', 5000), ('NIST-tests-api', 5001), ('WELL_API', 5003), ('XoshiroAPI', 80)]
 
     for api_folder in api_folders:
