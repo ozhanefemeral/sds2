@@ -118,18 +118,18 @@ Returns:
 
 
 Below are tests with times it took to run them in ascending order hence that it is the order in which GUI should call tests (on first 1000000 bits of binary expansion of pi)
-FrequencyMonobitTest 0.32040977478027344
-LongestRunOfOnesInABlockTest 0.3401670455932617
-FrequencyTestWithinBlock 0.4076673984527588
-RunsTest 0.41521120071411133
-DiscreteFourierTransformTest 0.5124905109405518
-MaurersUniversalStatisticalTest 0.5718038082122803
-RandomExcursionsVariantTest 0.7407591342926025
-CumulativeSumsForwardTest 0.7692513465881348
-CumulativeSumsBackwardTest 0.772552490234375
-RandomExcursionsTest 0.8859479427337646
-SerialTest 1.5594747066497803
-BinaryMatrixRankTest 1.7622203826904297
-NonOverlappingTemplateMatchingTest 2.0884406566619873
-OverlappingTemplateMatchingTest 2.1745798587799072
-ApproximateEntropyTest 5.110479831695557
+ - FrequencyMonobitTest 0.32040977478027344
+ - LongestRunOfOnesInABlockTest 0.3401670455932617
+ - FrequencyTestWithinBlock 0.4076673984527588
+ - RunsTest 0.41521120071411133
+ - DiscreteFourierTransformTest 0.5124905109405518
+ - MaurersUniversalStatisticalTest 0.5718038082122803
+ - RandomExcursionsVariantTest 0.7407591342926025
+ - CumulativeSumsForwardTest 0.7692513465881348
+ - CumulativeSumsBackwardTest 0.772552490234375
+ - RandomExcursionsTest 0.8859479427337646
+ - SerialTest 1.5594747066497803
+ - BinaryMatrixRankTest 1.7622203826904297
+ - NonOverlappingTemplateMatchingTest 2.0884406566619873
+ - OverlappingTemplateMatchingTest 2.1745798587799072
+ - ApproximateEntropyTest 5.110479831695557
