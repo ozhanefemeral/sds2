@@ -20,7 +20,7 @@ def build_and_run_api(api_folder, port):
     os.chdir('..')
 
 if __name__ == "__main__":
-    api_folders = [('MM-BD-API', 5000), ('NIST-tests-api', 5001), ('WELL_API', 5003), ('XoshiroAPI', 80)]
+    api_folders = [('MM-BD-API', 5002), ('NIST-tests-api', 5001), ('WELL_API', 5003), ('XoshiroAPI', 80)]
 
     for api_folder in api_folders:
         build_and_run_api(api_folder[0], api_folder[1])

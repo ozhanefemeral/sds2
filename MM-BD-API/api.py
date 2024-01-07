@@ -118,7 +118,7 @@ def algorithm_B():
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
     
 
-@app.route("/alogrithm_M_without_data", methods=["POST"])
+@app.route("/algorithm_M_without_data", methods=["POST"])
 
 def algorithm_M_without_data():
     """
@@ -198,7 +198,7 @@ def algorithm_M_without_data():
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
     
 
-@app.route("/alogrithm_B_without_data", methods=["POST"])
+@app.route("/algorithm_B_without_data", methods=["POST"])
 def algorithm_B_without_data():
     """
     Execute Algorithm B without providing input data directly. Instead, the algorithm is driven by the provided parameters to generate a sequence using a linear congruential generator.
@@ -268,7 +268,7 @@ if __name__ == "__main__":
     #app.run(debug=True)
     
     #for production
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5002)
 
 
 

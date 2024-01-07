@@ -14,7 +14,7 @@ RUN . venv/bin/activate
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Make port 5000 available to the world outside this container
-EXPOSE 5000
+EXPOSE 5002
 
 # Run api.py when the container launches
 CMD ["python", "api.py"]
