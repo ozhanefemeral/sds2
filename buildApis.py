@@ -25,4 +25,4 @@ if __name__ == "__main__":
 
 
     for api_folder in api_folders:
-        build_and_run_api(api_folder[0], api_folder[1])
+        build_and_run_api(api_folder[0], api_folder[1], api_folder[2])
