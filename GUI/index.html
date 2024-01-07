@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/section.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/output.css">
+    <link rel="stylesheet" href="styles/cursor.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollToPlugin.min.js"></script>
+    <script src="scripts/nav.js" defer></script>
+    <script src="scripts/form.js" defer></script>
+    <script src="scripts/text_scrumbler.js" defer></script>
+    <script src="scripts/cursor.js" defer></script>
+
+</head>
+<body>
+
+    <div class="myCursor">
+        <div class="outerRing"></div>
+        <div class="innerRing"></div>
+    </div>
+
+    <nav>
+        <ul>
+            <li>Xoshiro</li>
+            <li>MSWS</li>
+            <li>MM</li>
+            <li>BD</li>
+            <li>WELL</li>
+        </ul>
+    </nav>
+
+    <section id="SecInfo">
+        <h1>Generator PLACEHOLDER</h1>
+        <p>Lorem ispum</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend ornare ultrices. 
+            Vestibulum mauris mauris, interdum vel vulputate in, dictum quis risus. Suspendisse vehicula facilisis dolor id porta.
+            Nullam convallis augue tristique egestas consequat. Proin a pretium nunc. Ut aliquam velit at sodales viverra. 
+            Donec dignissim molestie nunc sed sollicitudin. Curabitur pretium quis purus suscipit ultricies. Phasellus lacinia est lorem, 
+            et hendrerit metus sollicitudin sit amet. Aliquam tempus bibendum aliquet.</p>
+    </section>
+
+    <section id="SecParameters">
+        <h1>Parametry</h1>
+        <form id="myform">
+
+            <div id="formContent">
+
+                <div>
+                    <label>seed</label>
+                    <input type="text" name="seed" size="30" placeholder="0 1 2 3 ..."/>
+                </div>
+
+                <div>
+                    <label>size</label>
+                    <input type="text" name="size" size="10" placeholder="100"/>
+                </div>
+
+            </div>
+
+            <div id="testsCheckbox">
+                <label>tests</label>
+                <input type="checkbox" name="tests"/>
+            </div>
+
+            <button type="button" onclick="submitForm()">Generuj</button>
+
+        </form>
+    </section>
+
+    <section id="SecOutput" hidden>
+        <h1>Output</h1>
+        <output></output>
+    </section>
+
+    <section id="SecTests" hidden>
+        <h1>Testy</h1>
+    </section>
+    
+</body>
+</html>

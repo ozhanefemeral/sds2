@@ -1,0 +1,26 @@
+:root{
+    --cBeige: #E0DAD5;  
+    --cDarkGray: #424249;
+    --cOrange: #FF5E2C;
+
+    --cBrightGray: #C4C2C0;
+    --cMiddleGray: #9e9c97;
+    --cRed: #FF5454;
+    --cGreen: #A7CF65;
+
+    --fPoppins: 'Poppins', sans-serif;
+}
+
+body{
+    margin: 0;
+    background-color: var(--cBeige);
+    font-family: var(--fPoppins);
+    color: var(--cDarkGray);
+    font-size: 16px;
+    
+    height: 200vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,78 @@
+form div div {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+form div>label{
+    display: block;
+    float: left;
+    width: 60px;
+    padding-right: 15px;
+}
+
+form input[type=text]{
+    background-color: transparent;
+    border: solid 1px var(--cBrightGray);
+    border-radius: 5px;
+    padding: 10px;
+    font-family: var(--fPoppins);
+    font-size: inherit;
+    color: var(--cDarkGray);
+}
+
+form input[type=text]::placeholder{
+    color: var(--cMiddleGray);
+}
+
+form div#testsCheckbox{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+form input[type=checkbox]{
+    display: block;
+    cursor: pointer;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    -o-appearance:none;
+    box-sizing: border-box;
+    height: 15px;
+    width: 15px;
+    background-color: var(--cBeige);
+    border: solid 1px var(--cDarkGray);
+    border-radius: 4px;
+}
+form input[type=checkbox]:checked{
+    background-color: var(--cDarkGray);
+    background-image: url(checkbox1.svg);
+    background-position: center;
+}
+
+form button{
+    cursor: pointer;
+    display: block;
+    border: none;
+    background-color: var(--cOrange);
+    border-radius: 5px;
+    padding: 15px 45px 15px 45px;
+    font-family: var(--fPoppins);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cBeige);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form button.clickedOnce{
+    background-color: var(--cBrightGray);
+    transition: background 0.5s;
+}
+
+form button.clickedOnce:hover{
+    background-color: var(--cOrange);
+}

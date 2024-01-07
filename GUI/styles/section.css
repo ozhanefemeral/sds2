@@ -1,0 +1,18 @@
+section:nth-of-type(1){
+    margin-top: 100px;
+}
+
+section{
+    /* background-color: var(--cBeige); */
+    max-width: 800px;
+    height: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+section h1{
+    color: var(--cOrange);
+    font-weight: 500;
+}
