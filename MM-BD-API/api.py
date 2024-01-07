@@ -1,8 +1,9 @@
 from algorithms import linear_congruential_generator, shuffle_by_algorithm_B_with_Iterator, shuffle_by_algorithm_M, shuffle_by_algorithm_B, shuffle_by_algorithm_M_with_Iterator
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 app = Flask(__name__)
 
-
+CORS(app)
     
 @app.route("/algorithm_M_with_data", methods=["POST"])
 def algorithm_M():
