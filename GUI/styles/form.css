@@ -1,10 +1,10 @@
-form div {
+form div div {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
 }
 
-form div label{
+form div>label{
     display: block;
     float: left;
     width: 60px;
@@ -25,21 +25,11 @@ form input[type=text]::placeholder{
     color: var(--cMiddleGray);
 }
 
-form div#testCheckboxes{
+form div#testsCheckbox{
     margin-top: 20px;
-}
-
-form div#testCheckboxes div{
+    margin-bottom: 15px;
     display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-right: 15px;
-}
-form div#testCheckboxes div label{
-    text-align: center;
-    width: auto;
 }
 
 form input[type=checkbox]{
