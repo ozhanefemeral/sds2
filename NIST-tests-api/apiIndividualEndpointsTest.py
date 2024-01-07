@@ -9,7 +9,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testFrequencyMonobitTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/frequencyMonobitTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/frequencyMonobitTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -19,7 +19,7 @@ class TestTesterClass(unittest.TestCase):
     
     def testFrequencyTestWithinBlockEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/frequencyTestWithinBlock", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/frequencyTestWithinBlock", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -29,7 +29,7 @@ class TestTesterClass(unittest.TestCase):
     
     def testRunsTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/runsTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/runsTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -39,7 +39,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testLongestRunOfOnesInABlockTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/longestRunOfOnesInABlockTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/longestRunOfOnesInABlockTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -49,7 +49,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testBinaryMatrixRankTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/binaryMatrixRankTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/binaryMatrixRankTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -59,7 +59,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testDiscreteFourierTransformTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/discreteFourierTransformTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/discreteFourierTransformTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -69,7 +69,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testNonOverlappingTemplateMatchingTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/nonOverlappingTemplateMatchingTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/nonOverlappingTemplateMatchingTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -79,7 +79,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testOverlappingTemplateMatchingTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/overlappingTemplateMatchingTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/overlappingTemplateMatchingTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -89,7 +89,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testMaurersUniversalStatisticalTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/maurersUniversalStatisticalTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/maurersUniversalStatisticalTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -99,7 +99,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testSerialTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/serialTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/serialTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -109,7 +109,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testApproximateEntropyTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/approximateEntropyTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/approximateEntropyTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -119,7 +119,7 @@ class TestTesterClass(unittest.TestCase):
     
     def testCumulativeSumsForwardTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/cumulativeSumsForwardTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/cumulativeSumsForwardTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -129,7 +129,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testCumulativeSumsBackwardTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/cumulativeSumsBackwardTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/cumulativeSumsBackwardTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -139,7 +139,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testRandomExcursionsTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/randomExcursionsTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/randomExcursionsTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -149,7 +149,7 @@ class TestTesterClass(unittest.TestCase):
 
     def testRandomExcursionsVariantTestEndpoint(self):
         start = time.time()
-        response = requests.post("http://localhost:5001/randomExcursionsVariantTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/randomExcursionsVariantTest", json={"sequence": pi_list})
         end = time.time()
         pval = response.json()["pval"]
         result = response.json()["result"]
@@ -168,7 +168,7 @@ if __name__ == '__main__':
     pi_list = [int(i) for i in pi_str]
     pi_list = pi_list[:1000000]
     try:
-        response = requests.post("http://localhost:5001/frequencyMonobitTest", json={"sequence": pi_list})
+        response = requests.post("http://127.0.0.1:5001/frequencyMonobitTest", json={"sequence": pi_list})
     except requests.exceptions.ConnectionError:
         print("Server is not running")
         exit()
