@@ -10,7 +10,7 @@ def linear_congruential_generator(m, a, c, seed) -> Iterator[int]:
 def shuffle_by_algorithm_M(X:list, Y:list, k, n):
     if len(X) < k:
         raise ValueError("X must have at least k elements")
-    mod_Y = max(Y)
+    mod_Y = max(Y)+1
     V = []
     V = X[0:k]
     x_index = k 
@@ -60,7 +60,7 @@ def shuffle_by_algorithm_B(X:list, k, n):
     Y = X[x_index]
     x_index += 1
     shuffled_X = []
-    mod = max(X)
+    mod = max(X)+1
     
     while n > 0:
         if x_index == len(X):
