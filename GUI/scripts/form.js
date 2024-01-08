@@ -58,6 +58,39 @@ function submitForm(){
       //TODO: 
       case "MM":
         /// VALIDATE FORM DATA FOR MM
+
+        //validate X
+        var X = []
+        var XArray = []
+        if( fd.get("X")!=="" ){
+          XArray = fd.get("X").split(/[,\s]+/)
+          if(XArray[XArray.length - 1]==="")XArray.pop()
+          for(el of XArray){
+            if(!isNonNegInt(el)){
+              //TODO: wyświetlanie błędu w formularzu
+              console.error("niepoprawny parametr X, złe wartości")
+              return;
+            }
+          }
+        }        
+        X = XArray.map(element => parseInt(element, 10));
+
+        //validate Y
+        var Y = []
+        var YArray = []
+        if( fd.get("Y")!=="" ){
+          YArray = fd.get("Y").split(/[,\s]+/)
+          if(YArray[YArray.length - 1]==="")YArray.pop()
+          for(el of YArray){
+            if(!isNonNegInt(el)){
+              //TODO: wyświetlanie błędu w formularzu
+              console.error("niepoprawny parametr Y, złe wartości")
+              return;
+            }
+          }
+        }
+        Y = YArray.map(element => parseInt(element, 10));
+
         //validate aX
         var aX = fd.get("aX")==="" ? 3141592653 : fd.get("aX")
         if( !isNonNegInt(aX) ){
@@ -137,6 +170,11 @@ function submitForm(){
           console.error("niepoprawny parametr k")
           return;
         }
+        else if( XArray.length!=0 && XArray.length < k ){          
+          //TODO: wyświetlanie błędu w formularzu
+          console.error("niepoprawny parametr k, powinien byc mniejszy niż size(X)")
+          return;
+        }
         k = parseInt(k,10)
 
         //validate n
@@ -148,8 +186,13 @@ function submitForm(){
         }
         n = parseInt(n,10)
 
+        var endpoint = "algorithm_M_without_data"
+        if(X.length!=0 && Y.length!=0){
+          endpoint = "algorithm_M_with_data"
+        }
+
         /// REQUEST
-        fetch("http://127.0.0.1:5002/algorithm_M_without_data", {
+        fetch(`http://127.0.0.1:5002/${endpoint}`, {
             method: "POST",
             mode: 'cors',
             body: JSON.stringify({
@@ -162,7 +205,9 @@ function submitForm(){
               mY: mY,
               seedY: seedY,
               k: k,
-              n: n
+              n: n,
+              X: X,
+              Y: Y
             }),
             headers: {
               "Content-type": "application/json; charset=UTF-8"
@@ -182,6 +227,22 @@ function submitForm(){
       case "BD":   
 
         /// VALIDATE FORM DATA FOR BD
+        //validate X
+        var X = []
+        var XArray = []
+        if( fd.get("X")!=="" ){
+          XArray = fd.get("X").split(/[,\s]+/)
+          if(XArray[XArray.length - 1]==="")XArray.pop()
+          for(el of XArray){
+            if(!isNonNegInt(el)){
+              //TODO: wyświetlanie błędu w formularzu
+              console.error("niepoprawny parametr X, złe wartości")
+              return;
+            }
+          }
+        }        
+        X = XArray.map(element => parseInt(element, 10));
+
         //validate aX
         var aX = fd.get("aX")==="" ? 3141592653 : fd.get("aX")
         if( !isNonNegInt(aX) ){
@@ -225,6 +286,11 @@ function submitForm(){
           console.error("niepoprawny parametr k")
           return;
         }
+        else if( XArray.length!=0 && XArray.length < k ){          
+          //TODO: wyświetlanie błędu w formularzu
+          console.error("niepoprawny parametr k, powinien byc mniejszy niż size(X)")
+          return;
+        }
         k = parseInt(k,10)
 
         //validate n
@@ -234,10 +300,15 @@ function submitForm(){
           console.error("niepoprawny parametr n")
           return;
         }
-        n = parseInt(n,10)
+        n = parseInt(n,10)    
+
+        var endpoint = "algorithm_B_without_data"
+        if(X.length!=0){
+          endpoint = "algorithm_B_with_data"
+        }
 
         /// REQUEST
-        fetch("http://127.0.0.1:5002/algorithm_B_without_data", {
+        fetch(`http://127.0.0.1:5002/${endpoint}`, {
             method: "POST",
             mode: 'cors',
             body: JSON.stringify({
@@ -246,7 +317,8 @@ function submitForm(){
               mX: mX,
               seedX: seedX,
               k: k,
-              n: n
+              n: n,
+              X: X
             }),
             headers: {
               "Content-type": "application/json; charset=UTF-8"
@@ -265,6 +337,7 @@ function submitForm(){
       case "WELL":
 
         /// VALIDATE FORM DATA FOR WELL
+        //TODO: naprawić 
         //validate seed <- array of 16 non-negative INTs
         var seed = []
         if( fd.get("seed")!=="" ){
@@ -276,7 +349,6 @@ function submitForm(){
             return;
           }
           for(el of seedArray){
-            console.log(el)
             if(!isNonNegInt(el)){
               //TODO: wyświetlanie błędu w formularzu
               console.error("niepoprawny parametr SEED, złe wartości")
@@ -284,6 +356,8 @@ function submitForm(){
             }
           }
         }
+        seed = seedArray.map(element => parseInt(element, 10));
+
         //validate size <- non-negative INT
         var size = fd.get("size")==="" ? 100 : fd.get("size")
         if( !isNonNegInt(size) ){

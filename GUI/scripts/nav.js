@@ -77,6 +77,25 @@ function fillContent(generator_name){
             secInfo.html(infoContent)
 
             var formContent = `
+            
+                <div>
+                    <label>X</label>
+                    <input type="text" name="X" size="30" placeholder="0 1 2 3 ..."/>
+                </div>
+                <div>
+                    <label>Y</label>
+                    <input type="text" name="Y" size="30" placeholder="0 1 2 3 ..."/>
+                </div>
+
+                <div>
+                    <label>k</label>
+                    <input type="text" name="k" size="10" placeholder="64"/>
+                </div>
+                <div>
+                    <label>n</label>
+                    <input type="text" name="n" size="10" placeholder="100"/>
+                </div>
+
                 <div>
                     <label>aX</label>
                     <input type="text" name="aX" size="10" placeholder="3141592653"/>
@@ -110,15 +129,6 @@ function fillContent(generator_name){
                     <label>seedY</label>
                     <input type="text" name="seedY" size="10" placeholder="1781072418"/>
                 </div>
-
-                <div>
-                    <label>k</label>
-                    <input type="text" name="k" size="10" placeholder="64"/>
-                </div>
-                <div>
-                    <label>n</label>
-                    <input type="text" name="n" size="10" placeholder="100"/>
-                </div>
             `;
             form.find("#formContent").html(formContent)
 
@@ -134,6 +144,21 @@ function fillContent(generator_name){
             secInfo.html(infoContent)
 
             var formContent = `
+
+                <div>
+                    <label>X</label>
+                    <input type="text" name="X" size="30" placeholder="0 1 2 3 ..."/>
+                </div>
+
+                <div>
+                    <label>k</label>
+                    <input type="text" name="k" size="10" placeholder="64"/>
+                </div>
+                <div>
+                    <label>n</label>
+                    <input type="text" name="n" size="10" placeholder="100"/>
+                </div>
+
                 <div>
                     <label>aX</label>
                     <input type="text" name="aX" size="10" placeholder="3141592653"/>
@@ -149,15 +174,6 @@ function fillContent(generator_name){
                 <div>                
                     <label>seedX</label>
                     <input type="text" name="seedX" size="10" placeholder="5772156649"/>
-                </div>
-
-                <div>
-                    <label>k</label>
-                    <input type="text" name="k" size="10" placeholder="64"/>
-                </div>
-                <div>
-                    <label>n</label>
-                    <input type="text" name="n" size="10" placeholder="100"/>
                 </div>
             `;
             form.find("#formContent").html(formContent)
