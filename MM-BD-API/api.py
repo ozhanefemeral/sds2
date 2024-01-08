@@ -17,7 +17,6 @@ def algorithm_M():
     - X (list): The input list of integers for Algorithm M.
     - Y (list): The input list of integers for Algorithm M.
     - k (int): The size of the initial subset used by Algorithm M.
-    - mod_Y_pow (int): The power for 2^mod_Y, where mod_Y is the modulus used by Algorithm M.
     - n (int): The number of iterations to perform.
 
     Returns:
@@ -43,10 +42,8 @@ def algorithm_M():
         X = json_data["X"]
         Y = json_data["Y"]
         k = json_data["k"]
-        mod_Y_pow = json_data["mod_Y"]
-        mod_Y = 2**mod_Y_pow
         n = json_data["n"]
-        result = shuffle_by_algorithm_M(X, Y, k, mod_Y, n)
+        result = shuffle_by_algorithm_M(X, Y, k, n)
 
         response_data = {
             "success": True,
@@ -74,7 +71,6 @@ def algorithm_B():
     Parameters:
     - X (list): The input list of integers.
     - k (int): The size of the initial subset used by the algorithm.
-    - mod_pow (int): The power for 2^mod, where mod is the modulus used by the algorithm.
     - n (int): The number of iterations to perform.
 
     Returns:
@@ -99,10 +95,8 @@ def algorithm_B():
         json_data = request.get_json()
         X = json_data["X"]
         k = json_data["k"]
-        mod_pow = json_data["mod"]
-        mod = 2**mod_pow
         n = json_data["n"]
-        result = shuffle_by_algorithm_B(X, k, mod, n)
+        result = shuffle_by_algorithm_B(X, k, n)
 
         response_data = {
             "success": True,

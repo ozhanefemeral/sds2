@@ -7,34 +7,28 @@ def linear_congruential_generator(m, a, c, seed) -> Iterator[int]:
         x = (a * x + c) % m
         yield x
 
-def shuffle_by_algorithm_M(X:list, Y:list, k, mod_Y, n):
+def shuffle_by_algorithm_M(X:list, Y:list, k, n):
     if len(X) < k:
         raise ValueError("X must have at least k elements")
-
+    mod_Y = max(Y)
     V = []
     V = X[0:k]
     x_index = k 
     y_index = 0 
-
     shuffled_X = []
-
     while n > 0:
         if x_index == len(X):
             x_index = 0
         if y_index == len(V):
             y_index = 0
-        
         x = X[x_index]
         y = Y[y_index]
         j = math.floor((k*y)/mod_Y)
-
         shuffled_X.append(V[j])
         V[j] = x
-
         x_index += 1
         y_index += 1
         n -= 1
-    
     return shuffled_X
 
 def shuffle_by_algorithm_M_with_Iterator(X:Iterator[int], Y:Iterator[int], k, mod_Y, n):
@@ -54,7 +48,7 @@ def shuffle_by_algorithm_M_with_Iterator(X:Iterator[int], Y:Iterator[int], k, mo
     
     return shuffled_X
 
-def shuffle_by_algorithm_B(X:list, k, mod, n):
+def shuffle_by_algorithm_B(X:list, k, n):
     if len(X) < k:
         raise ValueError("X must have at least k elements")
 
@@ -66,6 +60,7 @@ def shuffle_by_algorithm_B(X:list, k, mod, n):
     Y = X[x_index]
     x_index += 1
     shuffled_X = []
+    mod = max(X)
     
     while n > 0:
         if x_index == len(X):
