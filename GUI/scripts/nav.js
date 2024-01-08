@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollToPlugin)
 
 const nav = $('nav');
-var currGenerator; //Zmienna potrzebna do form.js
+var currGenerator; //Needed for form.js
 
 function fillContent(generator_name){
 
