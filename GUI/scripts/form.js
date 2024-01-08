@@ -4,6 +4,26 @@ function isNonNegInt(str){
     return valid
 }
 
+function ArrayToBinString(inputArray){
+  var result = ""
+  for( el of inputArray ){
+      for (let i = 31; i >= 0; i--) {
+          result += (parseInt(el,10) & (1 << i)) ? '1' : '0';
+      }
+  }
+  return result
+}
+
+function tests(binStr){
+  var form = $("#myform");
+  var fd = new FormData(form[0]);
+  console.log( fd.get("tests") )
+  if( !fd.get("tests") )  return
+  
+  console.log("(!) przechodze do testów")
+
+}
+
 function submitForm(){
 
     $("form button").addClass("clickedOnce")
@@ -53,6 +73,7 @@ function submitForm(){
         //validate seed
         //validate bit size
         /// REQUEST
+        $("output").text("(!) Not implemented")
         break;
 
       //TODO: 
@@ -340,6 +361,7 @@ function submitForm(){
         //TODO: naprawić 
         //validate seed <- array of 16 non-negative INTs
         var seed = []
+        var seedArray = []
         if( fd.get("seed")!=="" ){
           seedArray = fd.get("seed").split(/[,\s]+/)
           if(seedArray[seedArray.length - 1]==="")seedArray.pop()
