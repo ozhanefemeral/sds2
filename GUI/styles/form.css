@@ -32,7 +32,7 @@ form div#testsCheckbox{
     align-items: center;
 }
 
-form input[type=checkbox]{
+input[type=checkbox]{
     display: block;
     cursor: pointer;
     -moz-appearance:none;
@@ -44,11 +44,11 @@ form input[type=checkbox]{
     background-color: var(--cBeige);
     border: solid 1px var(--cDarkGray);
     border-radius: 4px;
+    background-position: center;
 }
-form input[type=checkbox]:checked{
+input[type=checkbox]:checked{
     background-color: var(--cDarkGray);
     background-image: url(checkbox1.svg);
-    background-position: center;
 }
 
 form button{

@@ -16,6 +16,14 @@ function arrayToBinString(inputArray){
 
 function fetchAndRenderDataFromTest(binStr,endpoint){
 
+  const testsSection = $("#SecTests")
+  testsSection.append(`
+    <div id=${endpoint}>
+      <input type="checkbox" disabled"/>
+      <label>${endpoint.replace(/([A-Z])/g, ' $1')}</label>
+    </div>`
+  )
+
   fetch(`http://127.0.0.1:5001/${endpoint}`, {
     method: "POST",
     mode: 'cors',
@@ -30,18 +38,22 @@ function fetchAndRenderDataFromTest(binStr,endpoint){
 
       if("error" in json){
         console.error(`(!) (${endpoint}) ERROR: ${json['error']}`)
+        $(`#${endpoint}>input`).addClass("skipped")
         return
       }
 
       if(json['result'].split('/')[0] == -1){
         console.log(`${endpoint}: %ctoo small input sequence`,'color: red')
+        $(`#${endpoint}>input`).addClass("skipped")
       }
       else if( json['result'].split('/')[0] == json['result'].split('/')[1] 
                || (endpoint=="randomExcursionsVariantTest" && json['result'].split('/')[0]>=16) ){
         console.log(`${endpoint}: %c${json['result']}`,'color: green')
+        $(`#${endpoint}>input`).addClass("passed")
       }
       else{        
         console.log(`${endpoint}: %c${json['result']}`,'color: red')
+        $(`#${endpoint}>input`).addClass("failed")
       }
 
   })
@@ -54,10 +66,8 @@ function callTests(binStr){
   var fd = new FormData(form[0]);
   if( !fd.get("tests") )  return
 
+  $('#SecTests').html("<h1>Testy</h1>")
   $("#SecTests").show();
-
-  // console.log("(!) przechodze do testów")
-  // console.log(`(!) bitStr = ${binStr}`)
 
   // fetchAndRenderDataFromTest(bitsize,"testRandomnessWithNISTPakcage")
   fetchAndRenderDataFromTest(binStr,"frequencyMonobitTest")
@@ -440,8 +450,7 @@ function submitForm(){
         seed = seedArray.map(element => parseInt(element, 10));
 
         //validate size <- non-negative INT
-        //TODO: Zmienić z 630 -> 100
-        var size = fd.get("size")==="" ? 630 : fd.get("size")
+        var size = fd.get("size")==="" ? 100 : fd.get("size")
         if( !isNonNegInt(size) ){
           //TODO: wyświetlanie błędu w formularzu
           console.error("niepoprawny parametr SIZE")
@@ -474,7 +483,7 @@ function submitForm(){
         break;
     }
 
-    // $("#SecOutput").show();
-    // gsap.to(window, { duration: 1, scrollTo: $("#SecOutput").position().top - 70 ,ease: "power2" });
+    $("#SecOutput").show();
+    gsap.to(window, { duration: 1, scrollTo: $("#SecOutput").position().top - 70 ,ease: "power2" });
         
 }

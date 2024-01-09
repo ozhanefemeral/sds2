@@ -1,0 +1,28 @@
+#SecTests input[type=checkbox].passed{
+    background-color: var(--cGreen);
+    border-color: var(--cGreen);
+    background-image: url(checkbox2.svg);
+}
+
+#SecTests input[type=checkbox].failed{
+    background-color: var(--cRed);
+    border-color: var(--cRed);
+    background-image: url(checkbox3.svg);
+}
+
+#SecTests input[type=checkbox].skipped{
+    background-color: var(--cDarkGray);
+    border-color: var(--cDarkGray);
+    background-image: url(checkbox5.svg);
+}
+
+#SecTests div{   
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#SecTests div label{
+    text-transform: capitalize;
+}
