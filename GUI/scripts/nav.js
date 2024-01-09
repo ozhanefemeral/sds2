@@ -9,6 +9,7 @@ function fillContent(generator_name){
     
     $("#SecOutput").hide();    
     $("#SecTests").hide();
+    $("form button").removeClass("clickedOnce")
 
     gsap.to(window, { duration: 1, scrollTo: $("#SecInfo").position().top ,ease: "power2" });
 
@@ -189,6 +190,7 @@ function fillContent(generator_name){
                 <p>${lorem_ipsum_txt}</p>`;
             secInfo.html(infoContent)
 
+            //TODO: zmienić placeholder na 100 w size!!! 
             var formContent = `
                 <div>
                     <label>seed</label>
@@ -196,7 +198,7 @@ function fillContent(generator_name){
                 </div>
                 <div>
                     <label>size</label>
-                    <input type="text" name="size" size="10" placeholder="100"/>
+                    <input type="text" name="size" size="10" placeholder="630"/>
                 </div>
             `;
             form.find("#formContent").html(formContent)
@@ -210,4 +212,4 @@ nav.find('ul>li').on('click', function () {
     fillContent($(this).text());
 });
 
-fillContent(nav.find('ul>li').eq(0).text())
+fillContent(nav.find('ul>li').eq(4).text())

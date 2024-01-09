@@ -4,7 +4,7 @@ function isNonNegInt(str){
     return valid
 }
 
-function ArrayToBinString(inputArray){
+function arrayToBinString(inputArray){
   var result = ""
   for( el of inputArray ){
       for (let i = 31; i >= 0; i--) {
@@ -14,13 +14,67 @@ function ArrayToBinString(inputArray){
   return result
 }
 
-function tests(binStr){
+function fetchAndRenderDataFromTest(binStr,endpoint){
+
+  fetch(`http://127.0.0.1:5001/${endpoint}`, {
+    method: "POST",
+    mode: 'cors',
+    body: JSON.stringify({
+      sequence: binStr
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+  .then((response) => response.json()).then((json) => {
+
+      if("error" in json){
+        console.error(`(!) (${endpoint}) ERROR: ${json['error']}`)
+        return
+      }
+
+      if(json['result'].split('/')[0] == -1){
+        console.log(`${endpoint}: %ctoo small input sequence`,'color: red')
+      }
+      else if( json['result'].split('/')[0] == json['result'].split('/')[1] 
+               || (endpoint=="randomExcursionsVariantTest" && json['result'].split('/')[0]>=16) ){
+        console.log(`${endpoint}: %c${json['result']}`,'color: green')
+      }
+      else{        
+        console.log(`${endpoint}: %c${json['result']}`,'color: red')
+      }
+
+  })
+  .catch((error) => { console.error('(!) ERROR:', error); })
+
+}
+
+function callTests(binStr){
   var form = $("#myform");
   var fd = new FormData(form[0]);
-  console.log( fd.get("tests") )
   if( !fd.get("tests") )  return
-  
-  console.log("(!) przechodze do testów")
+
+  $("#SecTests").show();
+
+  // console.log("(!) przechodze do testów")
+  // console.log(`(!) bitStr = ${binStr}`)
+
+  // fetchAndRenderDataFromTest(bitsize,"testRandomnessWithNISTPakcage")
+  fetchAndRenderDataFromTest(binStr,"frequencyMonobitTest")
+  fetchAndRenderDataFromTest(binStr,"frequencyTestWithinBlock")
+  fetchAndRenderDataFromTest(binStr,"runsTest")
+  fetchAndRenderDataFromTest(binStr,"longestRunOfOnesInABlockTest")
+  fetchAndRenderDataFromTest(binStr,"binaryMatrixRankTest")
+  fetchAndRenderDataFromTest(binStr,"discreteFourierTransformTest")
+  fetchAndRenderDataFromTest(binStr,"nonOverlappingTemplateMatchingTest")
+  fetchAndRenderDataFromTest(binStr,"overlappingTemplateMatchingTest")
+  fetchAndRenderDataFromTest(binStr,"maurersUniversalStatisticalTest")
+  fetchAndRenderDataFromTest(binStr,"serialTest")
+  fetchAndRenderDataFromTest(binStr,"approximateEntropyTest")
+  fetchAndRenderDataFromTest(binStr,"cumulativeSumsForwardTest")
+  fetchAndRenderDataFromTest(binStr,"cumulativeSumsBackwardTest")
+  fetchAndRenderDataFromTest(binStr,"randomExcursionsTest")
+  fetchAndRenderDataFromTest(binStr,"randomExcursionsVariantTest")
 
 }
 
@@ -28,6 +82,7 @@ function submitForm(){
 
     $("form button").addClass("clickedOnce")
     $("output").text(" Waiting for data :) ")
+    $("#SecTests").hide();
 
     var form = $("#myform");
     var fd = new FormData(form[0]);    
@@ -61,7 +116,8 @@ function submitForm(){
             mode: 'cors'
         })
         .then((response) => response.json()).then((json) => {
-            $("output").text(JSON.stringify(json))
+            $("output").text(json)
+            callTests(json)
         })
         .catch((error) => { console.error('(!) ERROR:', error); $("output").text('(!) ERROR: '+ error) })
 
@@ -240,6 +296,7 @@ function submitForm(){
               str += el + " "
             }
             $("output").text(str)
+            callTests(arrayToBinString(json["result"]))
         })
         .catch((error) => { console.error('(!) ERROR:', error); $("output").text('(!) ERROR: '+ error) })
         break;
@@ -351,10 +408,12 @@ function submitForm(){
               str += el + " "
             }
             $("output").text(str)
+            callTests(arrayToBinString(json["result"]))
         })
         .catch((error) => { console.error('(!) ERROR:', error); $("output").text('(!) ERROR: '+ error) })
         break;
 
+      //TODO:
       case "WELL":
 
         /// VALIDATE FORM DATA FOR WELL
@@ -381,7 +440,8 @@ function submitForm(){
         seed = seedArray.map(element => parseInt(element, 10));
 
         //validate size <- non-negative INT
-        var size = fd.get("size")==="" ? 100 : fd.get("size")
+        //TODO: Zmienić z 630 -> 100
+        var size = fd.get("size")==="" ? 630 : fd.get("size")
         if( !isNonNegInt(size) ){
           //TODO: wyświetlanie błędu w formularzu
           console.error("niepoprawny parametr SIZE")
@@ -407,14 +467,14 @@ function submitForm(){
               str += json[el] + " "
             }
             $("output").text(str)
+            callTests(arrayToBinString(json))
         })
         .catch((error) => { console.error('(!) ERROR:', error); $("output").text('(!) ERROR: '+ error) })
 
         break;
     }
 
-    $("#SecOutput").show();
-    gsap.to(window, { duration: 1, scrollTo: $("#SecOutput").position().top - 70 ,ease: "power2" });
+    // $("#SecOutput").show();
+    // gsap.to(window, { duration: 1, scrollTo: $("#SecOutput").position().top - 70 ,ease: "power2" });
         
 }
-

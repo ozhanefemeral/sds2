@@ -5,4 +5,5 @@ output{
     padding: 10px;
     color: var(--cDarkGray);
     min-height: 26px;
+    word-break: break-all;
 }
