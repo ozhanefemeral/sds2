@@ -1,23 +1,10 @@
-# Copy the project files to the container
-COPY . /usr/src/myapp
-
-# Set the working directory
-WORKDIR /usr/src/myapp
-
-# Build the application
-RUN mvn clean package
-
-# Stage 2: Create the runtime image
-FROM openjdk:17-jdk-slim
-
-# Expose port 8090
+FROM openjdk:17-jdk-slim as build
 EXPOSE 8090
 
-# Copy the JAR file from the builder stage
-COPY --from=builder /usr/src/myapp/target/your-application.jar /usr/app/your-application.jar
+ARG JAR_FILE=target/mswsAPI-0.0.1-SNAPSHOT.jar
 
-# Set the working directory
-WORKDIR /usr/app
+# Add the application's jar to the container
+COPY ${JAR_FILE} app.jar
 
-# Command to run the application
-ENTRYPOINT ["java", "-jar", "your-application.jar"]
+# Run the jar file
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
