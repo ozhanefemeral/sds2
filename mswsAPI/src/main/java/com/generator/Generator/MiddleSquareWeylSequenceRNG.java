@@ -12,7 +12,8 @@ public class MiddleSquareWeylSequenceRNG implements RandomNumberGenerator {
         return seed;
     }
 
-    public String generate(int length){
+    public String generate(int length,long s){
+        seed = s;
         StringBuilder bitSequence = new StringBuilder(length);
         while (bitSequence.length() < length) {
             long randomNumber = nextRandom();
