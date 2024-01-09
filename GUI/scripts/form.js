@@ -50,10 +50,18 @@ function fetchAndRenderDataFromTest(binStr,endpoint){
                || (endpoint=="randomExcursionsVariantTest" && json['result'].split('/')[0]>=16) ){
         console.log(`${endpoint}: %c${json['result']}`,'color: green')
         $(`#${endpoint}>input`).addClass("passed")
+
+        if(endpoint=="randomExcursionsTest" || endpoint=="randomExcursionsVariantTest"){
+          $(`#${endpoint}`).append(` ${json['result']}`)
+        }
       }
       else{        
         console.log(`${endpoint}: %c${json['result']}`,'color: red')
         $(`#${endpoint}>input`).addClass("failed")
+
+        if(endpoint=="randomExcursionsTest" || endpoint=="randomExcursionsVariantTest"){
+          $(`#${endpoint}`).append(` ${json['result']}`)
+        }
       }
 
   })
@@ -427,7 +435,6 @@ function submitForm(){
       case "WELL":
 
         /// VALIDATE FORM DATA FOR WELL
-        //TODO: naprawić 
         //validate seed <- array of 16 non-negative INTs
         var seed = []
         var seedArray = []
