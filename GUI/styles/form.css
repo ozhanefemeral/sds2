@@ -25,6 +25,16 @@ form input[type=text]::placeholder{
     color: var(--cMiddleGray);
 }
 
+form input[type=text].invalid{
+    background-color: var(--cRed);
+    border-color: var(--cRed);
+    color: var(--cBeige);
+}
+
+form input[type=text].invalid::placeholder{
+    color: var(--cDarkGray);
+}
+
 form div#testsCheckbox{
     margin-top: 20px;
     margin-bottom: 15px;
