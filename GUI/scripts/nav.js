@@ -57,11 +57,11 @@ function fillContent(generator_name){
             var formContent = `
                 <div>
                     <label>seed</label>
-                    <input type="text" name="seed" size="10" placeholder="???"/>
+                    <input type="text" name="seed" size="10" placeholder="1234"/>
                 </div>
                 <div>
                     <label>bit size</label>
-                    <input type="text" name="bitsize" size="10" placeholder="???"/>
+                    <input type="text" name="bitsize" size="10" placeholder="30"/>
                 </div>
             `;
             form.find("#formContent").html(formContent)

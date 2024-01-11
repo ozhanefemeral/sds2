@@ -168,12 +168,39 @@ function callXoshiro(fd){
     .catch((error) => { console.error('(!) ERROR:', error); $("output").text('(!) ERROR: '+ error) })
 }
 
-/*TODO*/function callMSWS(fd){
-    ///VALIDATE FORM DATA FOR MSWS
-    //validate seed
-    //validate bit size
+//TODO: CORS!!!
+function callMSWS(fd){
+
+    /// VALIDATE
+    var VALID = true
+
+    var seed = validateNonNegativeInt(fd.get("seed"),1234);
+    if(seed===false){
+        displayInvalidFormData("seed")
+        VALID = false
+    }
+
+    var bitsize = validateNonNegativeInt(fd.get("bitsize"),30);
+    if(bitsize===false){
+        displayInvalidFormData("bitsize")
+        VALID = false
+    }
+
+    if(!VALID) {
+        gsap.to(window, { duration: 1, scrollTo: $("#SecParameters").position().top - 70 ,ease: "power2" });
+        return false
+    }
+
     /// REQUEST
-    $("output").text("(!) Not implemented")
+    fetch(`http://127.0.0.1:8090/api/generate?seed=${encodeURIComponent(seed)}&size=${encodeURIComponent(bitsize)}`, {
+        method: "GET",
+        mode: 'cors'
+    })
+    .then((response) => response.json()).then((json) => {
+        $("output").text(json)
+        callTests(json)
+    })
+    .catch((error) => { console.error('(!) ERROR:', error); $("output").text('(!) ERROR: '+ error) })
 }
 
 function callMM(fd){
