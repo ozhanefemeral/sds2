@@ -1,4 +1,6 @@
-﻿namespace XoshiroAPI
+﻿using System.Text;
+
+namespace XoshiroAPI
 {
     public class XoshiroGenerator
     {
@@ -6,7 +8,7 @@
 
         public string? Generate(string seed, string size)
         {
-            var finalResult = "";
+            var finalResult = new StringBuilder();
             try
             {
                 var sizeValue = Convert.ToInt32(size);
@@ -14,28 +16,20 @@
 
                 InitializeState(seedValue);
 
-                var initialResult = Xoshiro256SS();
-
-                InitializeState(initialResult);
-
                 while (finalResult.Length < sizeValue)
                 {
                     var currentResult = Xoshiro256SS();
 
-                    finalResult += Convert.ToString((long)currentResult, 2);
+                    var binaryResult = Convert.ToString((long)currentResult, 2);
 
-                    InitializeState(currentResult);
+                    finalResult.Append(binaryResult);
                 }
 
-                var lastResult = finalResult[..sizeValue];
-
-                return lastResult;
+                return finalResult.ToString()[..sizeValue].ToString();
             }
             catch
             {
-                finalResult = null;
-
-                return finalResult;
+                return null;
             }
         }
 
