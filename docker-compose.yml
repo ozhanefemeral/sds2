@@ -1,0 +1,32 @@
+version: '1.0'
+services:
+  algorithms-mm-bd-api:
+    container_name: algorithms-mm-bd-api
+    build:
+      context: ./MM-BD-API
+    ports:
+      - "5002:5002"
+  nist-tests-api:
+    container_name: nist-tests-api
+    build:
+      context: ./NIST-tests-api
+    ports:
+      - "5001:5001"
+  well-api:
+    container_name: well-api
+    build:
+      context: ./WELL_API
+    ports:
+      - "5003:5003"
+  xoshiro:
+    container_name: xoshiro
+    build:
+      context: ./Xoshiro256ss
+    ports:
+      - "5004:80"
+  mswsapi:
+    container_name: mswsapi
+    build:
+      context: ./mswsAPI
+    ports:
+      - "8090:8090"
