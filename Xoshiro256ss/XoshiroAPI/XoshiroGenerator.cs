@@ -56,10 +56,19 @@ namespace XoshiroAPI
 
         private void InitializeState(ulong seed)
         {
-            for (var i = 0; i < _s.Length; i++)
-            {
-                _s[i] = (ulong)DateTime.Now.Ticks % seed;
-            }
+            _s[0] = Splitmix64(seed);
+            _s[1] = Splitmix64(_s[0]);
+            _s[2] = Splitmix64(_s[1]);
+            _s[3] = Splitmix64(_s[2]);
+        }
+
+        private static ulong Splitmix64(ulong seed)
+        {
+            seed += 0x9E3779B97f4A7C15;
+            seed = (seed ^ (seed >> 30)) * 0xBF58476D1CE4E5B9;
+            seed = (seed ^ (seed >> 27)) * 0x94D049BB133111EB;
+
+            return seed ^ (seed >> 31);
         }
     }
 }
