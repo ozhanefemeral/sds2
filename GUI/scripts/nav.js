@@ -73,8 +73,8 @@ function fillContent(generator_name){
             
             var infoContent = `
                 <h1>Generator McLaren-Marsaglia</h1>
-                <p>Opis alg. generatora, jego parametry, origin story itd.</p>
-                <p>${lorem_ipsum_txt}</p>`;
+                <p>Generator tasuje ciąg/wyjście generatora X na podstawie wartości generatora Y.<br>Generator początkowo inicjalizuje tablice przejściową V k-wartościami generatora X, następnie generator wybiera która wartość ma opuścić tablice i pojawić się na wyjściu na podstawie kolejnej wartości generatora Y. Kiedy wartość opuszcza tablice V zastępuje ją w tablicy kolejna wartość generatora X.</p>
+                <p>Aby skorzystać z wersji gdzie podajemy własny ciąg X i Y należy podać ciąg liczb niebitowych wygenerowanych przez generator X w polu X, a przez generator Y w polu Y, k gdzie k - wielkość tablicy inicjującej V i k <= size(X), n gdzie n - długość ciągu jaki chcemy otrzymać.<br>	W przypadku gdy chcemy podać na wejście generatory LCG pola X i Y należy pozostawić puste, a pola aX, cX, mX, seedX oraz analogiczne dla generatora Y wypełnić parametrami generatorów LCG gdzie LCG generuje liczby w sposób następujący: <br> - X(0) = seedX<br> - X(n+1)=(aX*X(n)+bX)mod mX</p>`;
             secInfo.html(infoContent)
 
             var formContent = `
