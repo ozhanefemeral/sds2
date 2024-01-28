@@ -186,14 +186,26 @@ function fillContent(generator_name){
 
             var infoContent = `
                 <h1>Generator WELL512a</h1>
-                <p>Opis alg. generatora, jego parametry, origin story itd.</p>
-                <p>${lorem_ipsum_txt}</p>`;
+                <p> Twórcami algorytmu generatora są: <i>François Panneton, Pierre L’Ecuyer</i> oraz <i>Makoto Matsumoto</i>.<br>
+                    W celu uzyskania pseudolosowości autorzy w algorytmie zastosowali mechanizmy przesunięć bitowych
+                    zarówno w lewo, jak i w prawo, operacje bitowe AND oraz XOR czy też maski bitowe.</p>
+
+                <p> Ważnymi cechami generatora są zarówno jego 32-bitowa architektura, idealnie nadająca się
+                    do zastosowań w systemach komputerowych, jak i długi okres powtarzalności ciągu, po którym generowany
+                    ciąg zaczyna się odtwarzać. Cechy te sprawiają, że idealnie nadaje się do różnych symulacji komputerowych
+                    wymagających długich pseudolosowych ciągów danych.</p>
+
+                <p> Parametr <b>seed</b> określa początkowy wektor stanu, składający się z 16 oddzielonych spacją bądź przecinkami liczb
+                    całkowitych z zakresu <b>[0, 4294967295]</b>.<br>
+                    Parametr <b>size</b> określa ilość wartości do wygenerowania i jest liczbą całkowitą nieujemną. W celu wykonania testów statystycznych parametr ten powinien
+                    być większy niż <b>625</b> </p>
+                `;
             secInfo.html(infoContent)
 
             var formContent = `
                 <div>
                     <label>seed</label>
-                    <input type="text" name="seed" size="30" placeholder="0 1 2 3 ..."/>
+                    <input type="text" name="seed" size="30" placeholder="0  1  2  3  4  5  6  7  8  9  10  11  12  13  14    15"/>
                 </div>
                 <div>
                     <label>size</label>
