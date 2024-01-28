@@ -168,7 +168,6 @@ function callXoshiro(fd){
     .catch((error) => { console.error('(!) ERROR:', error); $("output").text('(!) ERROR: '+ error) })
 }
 
-//TODO: CORS!!!
 function callMSWS(fd){
 
     /// VALIDATE
