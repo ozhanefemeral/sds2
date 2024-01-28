@@ -27,8 +27,9 @@ function fillContent(generator_name){
 
             var infoContent = `
                 <h1>Generator Xoshiro256</h1>
-                <p>Opis alg. generatora, jego parametry, origin story itd.</p>
-                <p>${lorem_ipsum_txt}</p>`;
+                <p>Generator Xoshiro256** jest generatorem liczb pseudolosowych, wywodzi się on z rodziny generatorów Xoshiro, której nazwa jest skrótem od „xor-shift-rotate” co odnosi się do głównych operacji wykorzystywanych w algorytmie. </p>
+                <p>Xoshiro256** używa liniowego silnika Xoshiro256 oraz szyfratora „**” , który wykonuje operację mnożenia, obrotu oraz ponownego mnożenia.</p>
+                <p> Parametrem wejściowym algorytmu generatora jest ziarno w formie 64-bitowej liczby bez znaku.`;
             secInfo.html(infoContent)
 
             var formContent = `
