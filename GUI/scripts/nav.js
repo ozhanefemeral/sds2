@@ -205,7 +205,7 @@ function fillContent(generator_name){
             var formContent = `
                 <div>
                     <label>seed</label>
-                    <input type="text" name="seed" size="30" placeholder="0  1  2  3  4  5  6  7  8  9  10  11  12  13  14    15"/>
+                    <input type="text" name="seed" size="30" placeholder="0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15"/>
                 </div>
                 <div>
                     <label>size</label>
