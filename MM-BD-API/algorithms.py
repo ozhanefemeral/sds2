@@ -49,7 +49,7 @@ def shuffle_by_algorithm_M_with_Iterator(X:Iterator[int], Y:Iterator[int], k, mo
     return shuffled_X
 
 def shuffle_by_algorithm_B(X:list, k, n):
-    if len(X) < k:
+    if len(X) < k+1:
         raise ValueError("X must have at least k elements")
 
     V = []
