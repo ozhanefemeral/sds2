@@ -50,9 +50,9 @@ function fillContent(generator_name){
             nav.find('ul>li').eq(1).addClass('selected');
 
             var infoContent = `
-                <h1>Generator Middle SquareWeyl Sequence</h1>
-                <p>Opis alg. generatora, jego parametry, origin story itd.</p>
-                <p>${lorem_ipsum_txt}</p>`;
+                <h1>Generator Middle Square Weyl Sequence</h1>
+                <p>Generator Middle Square Weyl Sequence jest rozwinięciem generatora Middle Square. Został opracowany przez Bernarda Widynskiego. Główna zmiana polega na wpleceniu sekwencji Weyla w algorytm, aby wyeliminować główny problem oryginalej wersji, czyli wpadanie w pętle.</p>
+                <p>Na wejściu zaimplementowany generator przyjmuję tylko ziarno w postaci liczby 64-bitowej oraz długość ciągu pseudolosowego, który chcemy otrzymać wyrażoną w bitach</p>`;
             secInfo.html(infoContent)
 
             var formContent = `
