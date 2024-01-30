@@ -10,7 +10,6 @@ public class GeneratorController {
     private final RandomNumberGenerator generator = new MiddleSquareWeylSequenceRNG();
 
     @GetMapping("/api/generate")
-    @ResponseBody
     public String getRandomSeq(@RequestParam int size, @RequestParam long seed) {
         return "\""+generator.generate(size, seed)+"\"";
     }

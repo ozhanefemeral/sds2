@@ -1,7 +1,7 @@
 version: '1.0'
 services:
-  algorithms-mm-bd-api:
-    container_name: algorithms-mm-bd-api
+  mm-bd-api:
+    container_name: mm-bd-api
     build:
       context: ./MM-BD-API
     ports:
